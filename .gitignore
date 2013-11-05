@@ -1,3 +1,7 @@
-# Eclipse IDE files
+# Eclipse IDE files and folders
 .project
 .pydevproject
+.settings
+# Python files and folders
+*.egg-info*
+*.pyc
