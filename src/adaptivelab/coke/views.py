@@ -11,7 +11,7 @@ class MessagesView(TemplateView):
         context = super(MessagesView, self).get_context_data(**kwargs)
         ctrl = Fetcher()
         if(ctrl.execute()):
-            data = Tweet.objects.all().order_by('sentiment')
+            data = Tweet.objects.all().order_by('-sentiment')
             context.update({
                 'tweets': data
             })

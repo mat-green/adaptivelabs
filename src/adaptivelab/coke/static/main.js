@@ -2,7 +2,19 @@ var coke = (function($) {
 	var control = {
 		fetch: function() {
 			var jqxhr = $.getJSON( "/api/messages/", function(data, textStatus, jqXHR ) {
-	                console.log( "success" );
+	                console.log( "success: "+data.length );
+	                if(data.length > 0)
+	                {	                	
+	                	for(x in data)
+	                	{
+	                		console.log(data[x])
+	                	}
+	                }
+	                else
+	                {
+	                	console.log("try again later message")
+	                }
+	                
               	})
                 .done(function() {
                 	console.log( "second success" );
