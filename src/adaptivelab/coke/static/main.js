@@ -2,21 +2,23 @@ var coke = (function($) {
 	var control = {
 		error: function() {
 			console.log("try again later message");
-			// $('#messages').html('<div class="alert"><script type="text/javascript">document.write(\'<button type="button" class="close" data-dismiss="alert">&times;</button>\')</script><p>OOPS! We failed to get messages<br/>Please try again later.</p></div>');
+			$('#messages').replaceWith('<div class="span12" id="messages"><div class="alert span6"><p>OOPS! We failed to get messages<br/>Please try again later.</p></div></div>');
 		},
 		fetch: function() {
 			var jqxhr = $.getJSON( "/api/messages/", function(data, textStatus, jqXHR ) {
 	                console.debug( "success: "+data.length );
 	                if(data.length > 0)
 	                {
-	                	var messages = "";
+	                	var messages = '<div class="span12" id="messages">';
 	                	for(x in data)
 	                	{
-	                		messages += "<dl>";
-	                		messages += "    <dt>" + data[x]['user_handle'] + " (" + data[x]['sentiment'] + "):</dt>";
-	                		messages += "    <dd>" + data[x]['message'] + " <strong>" + data[x]['occurances'] + " occurances</strong></dd>";
-	                		messages += "</dl>";
+	                		var sentiment = (data[x]['sentiment'] == 0 ? 'neutral' : (data[x]['sentiment'] > 0 ? 'positive' : 'negative'))
+	                		messages += '<dl>';
+	                		messages += '    <dt>' + data[x]['user_handle'] + ' <img src="http://adaptive-test-api.herokuapp.com/images/' + sentiment + '.png" /></dt>';
+	                		messages += '    <dd>' + data[x]['message'] + ' <strong>' + data[x]['occurances'] + ' occurances</strong></dd>';
+	                		messages += '</dl>';
 	                	}
+	                	messages += '</div>' 
 	                	$('#messages').replaceWith(messages);
 	                }
 	                else

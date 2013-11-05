@@ -29,10 +29,15 @@ class Fetcher(object):
                         for text in m.groups():
                             if text:
                                 message = message.replace(text, '<span class=\\"red\\">%s</span>' % text)
-                    model = Tweet(message=message,
-                                  sentiment=data["sentiment"],
-                                  user_handle=data["user_handle"])
-                    model.save()
+                    try:
+                        existing = Tweet.objects.get(message=message, user_handle=data["user_handle"])
+                        existing.occurances = existing.occurances+1
+                        existing.save()
+                    except Tweet.DoesNotExist:
+                        model = Tweet(message=message,
+                                      sentiment=data["sentiment"],
+                                      user_handle=data["user_handle"])
+                        model.save()
                 return True
             else:
                 return False
