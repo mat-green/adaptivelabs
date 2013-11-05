@@ -45,7 +45,7 @@ This assumes you are in the root of the project:
 
         cd src/adaptivelab
         python setup.py develop
-        python manage.py test
+        python manage.py test coke.IndexPageTest
         
 ## Database ##
 The database is put into a temporary folder that is printed to the console when 
