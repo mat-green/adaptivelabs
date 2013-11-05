@@ -4,6 +4,9 @@ from coke.controllers import Fetcher
 from coke.models import Tweet
 
 class MessagesView(TemplateView):
+    '''
+    API provider view that generates the tweets if they are successfully retrieved.
+    '''
     
     template_name = 'messages.json'
     

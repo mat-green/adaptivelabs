@@ -38,7 +38,6 @@ the root of the project):
         cd src/adaptivelab
         python setup.py develop
         python manage.py syncdb
-        python manage.py migrate
         python manage.py runserver
         
 ### Running Unit Tests ###
@@ -46,4 +45,9 @@ This assumes you are in the root of the project:
 
         cd src/adaptivelab
         python setup.py develop
-        python manage.py test
+        python manage.py test coke.IndexPageTest
+        
+## Database ##
+The database is put into a temporary folder that is printed to the console when 
+the application is started using python manage.py runserver. Using sqlite3 you 
+can then query the table coke_tweet to see the data captured.

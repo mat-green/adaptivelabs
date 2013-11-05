@@ -32,3 +32,5 @@ class IndexPageTest(LiveServerTestCase):
         """
         self.selenium.get('%s%s' % (self.live_server_url, '/'))
         page = IndexPage(self.selenium)
+        page = page.clickFetch()
+        self.assertTrue(page.checkForMessages(), "no response from fetching data")
