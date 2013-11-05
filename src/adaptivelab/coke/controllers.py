@@ -28,8 +28,7 @@ class Fetcher(object):
                     if m:
                         for text in m.groups():
                             if text:
-                                message = message.replace(text, '<span class="red">%s</span>' % text)
-                                print message
+                                message = message.replace(text, '<span class=\\"red\\">%s</span>' % text)
                     model = Tweet(message=message,
                                   sentiment=data["sentiment"],
                                   user_handle=data["user_handle"])

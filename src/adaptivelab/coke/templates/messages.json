@@ -1,10 +1,12 @@
 [
 {% for message in tweets %}
     {
+    {% autoescape off %}
         "message": "{{ message.message }}",
         "sentiment": {{ message.sentiment }},
         "user_handle": "{{ message.user_handle }}",
         "occurances": {{ message.occurances }}
+    {% endautoescape %}
     }{% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
 ]
