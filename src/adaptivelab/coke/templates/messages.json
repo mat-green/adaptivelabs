@@ -1,0 +1,10 @@
+[
+{% for message in tweets %}
+    {
+        message: "{{ message.message }}",
+        sentiment: {{ message.sentiment }},
+        user_handle: "{{ message.user_handle }}",
+        occurances: {{ message.occurances }}
+    }{% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+]
