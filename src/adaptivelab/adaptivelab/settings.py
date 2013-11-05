@@ -1,6 +1,7 @@
 #  -*- coding: utf-8 -*- 
 # Django settings for adaptivelab project.
 import tempfile
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -108,10 +109,13 @@ ROOT_URLCONF = 'adaptivelab.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'adaptivelab.wsgi.application'
 
+TEMPLATE_ROOT = os.path.abspath(os.path.dirname(__file__))
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    TEMPLATE_ROOT + '/../templates',
 )
 
 INSTALLED_APPS = (
@@ -121,11 +125,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
     'south',
+    'coke',
 )
 
 # A sample logging configuration. The only tangible logging

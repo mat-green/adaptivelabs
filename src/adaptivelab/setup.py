@@ -23,6 +23,7 @@ config = {
                                          "*.tests", "*.tests.*", "tests.*", "tests",
                                          "*.ez_setup", "*.ez_setup.*", "ez_setup.*", "ez_setup",
                                          "*.examples", "*.examples.*", "examples.*", "examples",
+                                         "*.testpages", "*.testpages.*", "testpages.*", "testpages",
                                        ]),
     "include_package_data" : True,
     "package_data" : { },
