@@ -1,3 +1,2 @@
 django==1.4.9
-south
 requests

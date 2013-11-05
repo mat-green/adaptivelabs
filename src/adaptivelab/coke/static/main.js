@@ -1,9 +1,8 @@
-var cubes = (function($) {
+var coke = (function($) {
 	var control = {
 		fetch: function() {
 			var jqxhr = $.getJSON( "/api/messages/", function(data, textStatus, jqXHR ) {
 	                console.log( "success" );
-	                model.data += data;
               	})
                 .done(function() {
                 	console.log( "second success" );
@@ -18,7 +17,6 @@ var cubes = (function($) {
                 });
 		}
 	};
-	var model = {};
 	return {
         execute: function() {
             console.debug("setting up");
