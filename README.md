@@ -41,3 +41,9 @@ the root of the project):
         python manage.py migrate
         python manage.py runserver
         
+### Running Unit Tests ###
+This assumes you are in the root of the project:
+
+        cd src/adaptivelab
+        python setup.py develop
+        python manage.py test
